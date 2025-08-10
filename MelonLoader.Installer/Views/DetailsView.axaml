@@ -34,8 +34,8 @@
             zipped version</TextBlock>
         <StackPanel Grid.Row="12" IsEnabled="{Binding !Installing}">
             <CheckBox Name="NightlyCheck" IsEnabled="{Binding EnableSettings}"
-                ToolTip.Tip="Enables bleeding-edge builds. ONLY ENABLE IF YOU KNOW WHAT YOU'RE DOING!"
-                Click="NightlyToggleHandler" HorizontalAlignment="Center">Enable Nightly builds</CheckBox>
+                ToolTip.Tip="Allows displaying more MelonLoader versions, such as the one without PlayerList"
+                Click="NightlyToggleHandler" HorizontalAlignment="Center">Enable advanced versions</CheckBox>
             <CheckBox Name="KeepFilesCheck"
                 ToolTip.Tip="Keep mods, plugins, UserData, and UserLibs when uninstalling."
                 HorizontalAlignment="Center"
