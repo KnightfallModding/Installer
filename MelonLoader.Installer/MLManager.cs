@@ -473,43 +473,5 @@ internal static class MLManager
         // Check for Subfolder Functionality
         if (!ShouldHandleSubfolderFunctionality(newVersion, oldVersion))
             return;
-
-        // Get Subfolders
-        var directories = Directory.GetDirectories(path, "*", SearchOption.TopDirectoryOnly);
-        foreach (var subdir in directories)
-        {
-            // Check for ~
-            string subdirName = Path.GetFileName(subdir);
-            if (subdirName.StartsWith("~"))
-                continue;
-
-            // Check for manifest.json
-            string manifestPath = Path.Combine(subdir, "manifest.json");
-            if (File.Exists(manifestPath))
-                continue;
-
-            // Rename Directory
-            int moveAttempts = 0;
-            while (moveAttempts < 100)
-                try
-                {
-                    string newPath = Path.Combine(path, $"~{subdirName}{((moveAttempts == 0) ? string.Empty : $"_{moveAttempts}")}");
-                    if (Directory.Exists(newPath))
-                        moveAttempts++;
-                    else
-                    {
-                        Directory.Move(subdir, newPath);
-                        if (!Directory.Exists(newPath) 
-                            && Directory.Exists(subdir))
-                            moveAttempts++;
-                        else
-                            break;
-                    }
-                }
-                catch
-                {
-                    moveAttempts++;
-                }
-        }
     }
 }
