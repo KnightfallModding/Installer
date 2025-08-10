@@ -25,17 +25,17 @@
 
     <PropertyGroup Condition="'$(RuntimeIdentifier.StartsWith(`win-`))' == 'true'">
         <DefineConstants>$(DefineConstants);WINDOWS</DefineConstants>
-        <AssemblyName>MelonLoader.Installer</AssemblyName>
+        <AssemblyName>KnightfallModding.Installer</AssemblyName>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(RuntimeIdentifier.StartsWith(`linux-`))' == 'true'">
         <DefineConstants>$(DefineConstants);LINUX</DefineConstants>
-        <AssemblyName>MelonLoader.Installer.Linux</AssemblyName>
+        <AssemblyName>KnightfallModding.Installer.Linux</AssemblyName>
     </PropertyGroup>
 	
     <PropertyGroup Condition="'$(RuntimeIdentifier.StartsWith(`osx-`))' == 'true'">
         <DefineConstants>$(DefineConstants);OSX</DefineConstants>
-        <AssemblyName>MelonLoader.Installer.MacOS</AssemblyName>
+        <AssemblyName>KnightfallModding.Installer.MacOS</AssemblyName>
         <PublishDir>../Output/$(RuntimeIdentifier)/MelonLoader Installer.app</PublishDir>
     </PropertyGroup>
     <PropertyGroup Condition="'$(RuntimeIdentifier.Equals(`osx-x64`))' == 'true'">
